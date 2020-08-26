@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'newsfeed',
     'django_celery_beat',
+
+    'core',
 ]
 
 MIDDLEWARE = [
