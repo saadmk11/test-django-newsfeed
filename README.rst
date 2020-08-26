@@ -1,4 +1,4 @@
-django-newsfeed demo project
+django-newsfeed ecample project
 ============================
 
 This is a example project created using the `django-newsfeed package`_.
@@ -65,8 +65,8 @@ Celery Schedule
         }
     }
 
-Admin override
---------------
+Admin Action override
+---------------------
 
 .. code-block:: python
 
@@ -95,7 +95,7 @@ Admin override
                 messages.SUCCESS,
                 'Sending selected newsletters(s) to the subscribers',
             )
-Gif:
-----
+Application Gif:
+----------------
 
 .. figure:: screenshot/newsfeed_example.gif
