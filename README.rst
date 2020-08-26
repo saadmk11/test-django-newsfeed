@@ -57,8 +57,6 @@ Celery Schedule
 
 .. code-block:: python
 
-    pygments_style = 'sphinx
-
     app.conf.beat_schedule = {
         'send_email_newsletter': {
             'task': 'send_email_newsletter_task',
@@ -71,8 +69,6 @@ Admin override
 --------------
 
 .. code-block:: python
-
-    pygments_style = 'sphinx
 
     from django.contrib import admin, messages
 
