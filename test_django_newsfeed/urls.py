@@ -18,13 +18,10 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 
-from core.views import HomeView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name='home'),
-    path('newsfeed/', include('newsfeed.urls')),
+    path('', include('newsfeed.urls')),
 ]
 
 
