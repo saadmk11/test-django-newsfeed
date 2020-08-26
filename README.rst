@@ -102,4 +102,4 @@ Admin override
 Gif:
 ----
 
-.. figure:: screenshot/newsfeed.gif
+.. figure:: screenshot/newsfeed_example.gif
