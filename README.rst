@@ -1,4 +1,4 @@
-django-newsfeed ecample project
+django-newsfeed example project
 ============================
 
 This is a example project created using the `django-newsfeed package`_.
