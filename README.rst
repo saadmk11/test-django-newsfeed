@@ -99,3 +99,7 @@ Admin override
                 messages.SUCCESS,
                 'Sending selected newsletters(s) to the subscribers',
             )
+Gif:
+----
+
+.. figure:: screenshot/newsfeed.gif
