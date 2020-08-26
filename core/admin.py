@@ -5,6 +5,7 @@ from newsfeed.models import Newsletter
 
 from .tasks import send_email_newsletter_task
 
+
 admin.site.unregister(Newsletter)
 
 
