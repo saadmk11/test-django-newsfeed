@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <main role="main">
+        <section class="jumbotron text-center text-white">
+            <div class="container">
+                <h1>Django Newsfeed example</h1>
+                <p class="lead text-muted border-bottom border-dark pb-2 mb-0">
+                    This is a Demo app to showcase django-newsfeed package<br>
+                    <a class="text-white" href="https://github.com/saadmk11/django-newsfeed">Learn more</a>
+                </p>
+                <hr />
+                <form method="post" class="subscriptionForm" action="{% url 'newsfeed:newsletter_subscribe' %}">
+                    <div class="input-group input-group-lg">
+                        {% csrf_token %}
+                        <input name="email_address" required type="email" class="form-control" placeholder="Subscribe to our newsletter" aria-label="Subscribe to our newsletter" />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-lg" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                    <div class="subscriptionMessage text-white pt-2"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+{% block footer %}{% endblock %}

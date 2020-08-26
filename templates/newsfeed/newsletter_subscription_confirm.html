@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block head_title %}Confirm Subscription{% endblock %}
+
+{% block content %}
+    <main role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                {% if subscribed %}
+                    <h4>Subscription confirmed!</h4>
+                {% else %}
+                    <h5 class="border-bottom border-gray pb-3">
+                        Subscription confirmation link has expired or is invalid.<br>
+                        Please click on the button below to receive an e-mail with a new confirmation link.
+                    </h5>
+                    <form method="post" class="subscriptionForm" action="{% url 'newsfeed:newsletter_subscribe' %}">
+                        <div class="input-group">
+                            {% csrf_token %}
+                            <input name="email_address" required type="hidden" value="{{ object.email_address }}" class="form-control" placeholder="Subscribe to our newsletter" aria-label="Subscribe to our newsletter" />
+                            <div class="input-group-append">
+                                <button class="btn btn-primary btn-sm" type="submit">Try Again</button>
+                            </div>
+                        </div>
+                        <div class="subscriptionMessage text-black pt-2"></div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block footer %}{% endblock %}

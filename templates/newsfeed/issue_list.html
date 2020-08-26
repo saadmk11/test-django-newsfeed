@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+{% block head_title %}Issue Archive{% endblock %}
+
+{% block content %}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <h3><b>Issue Archive</b></h3>
+            <hr />
+            {% for issue in object_list %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="my-3 p-3 bg-white rounded shadow-sm">
+                            <h6 class="border-bottom border-gray pb-2 mb-0">
+                                <b>
+                                    <a href="{{ issue.get_absolute_url }}" target="_blank">
+                                        {{ issue.title }} (#{{ issue.issue_number }})
+                                    </a>
+                                </b>
+                            </h6>
+                            <div class="media text-muted pt-3">
+                                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">{{ issue.short_description }}</p>
+                            </div>
+                            <footer class="pt-3 pb-1 blockquote-footer">release date: <b>{{ issue.publish_date|date:"D d M Y" }}</b></footer>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% block head_title %}Issue #{{ issue.issue_number }}{% endblock %}
+{% block content %}
+    <main role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <h3><b>Issue #{{ issue.issue_number }}</b></h3>
+                <hr />
+                <div class="pt-4 pb-5">
+                    <h4 class="pb-3"><b>{{ issue.title }}</b></h4>
+                    <p>{{ issue.short_description }}</p>
+                    <small>
+                        publish date: <b>{{ issue.publish_date|date:"D d M Y" }}</b>
+                    </small>
+                </div>
+
+                {% regroup object_list|dictsort:"category.order" by category as category_list %}
+
+                {% for category, posts in category_list %}
+                    <h5><b>{{ category }}</b></h5><hr>
+                    {% for post in posts %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                    <h6 class="border-bottom border-gray pb-2 mb-0"><b><a href="{{ post.source_url }}" target="_blank">{{ post.title }}</a></b></h6>
+                                    <div class="media text-muted pt-3">
+                                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">{{ post.short_description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

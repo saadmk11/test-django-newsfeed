@@ -1,0 +1,23 @@
+<footer class="text-muted">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <form method="post" class="subscriptionForm" action="{% url 'newsfeed:newsletter_subscribe' %}">
+                    <div class="input-group input-group-lg">
+                        {% csrf_token %}
+                        <input name="email_address" required type="email" class="form-control" placeholder="Subscribe to our newsletter" aria-label="Subscribe to our newsletter" />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-lg" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                    <div class="subscriptionMessage pt-2"></div>
+                </form>
+            </div>
+            <div class="col-4">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
