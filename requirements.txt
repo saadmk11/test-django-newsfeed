@@ -1,4 +1,4 @@
-celery==5.0.0
+celery==5.0.1
 Django==3.1.2
 django-celery-beat==2.1.0
 django-newsfeed==0.8.3
